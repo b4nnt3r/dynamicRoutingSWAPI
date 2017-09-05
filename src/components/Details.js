@@ -104,13 +104,22 @@ class Details extends Component {
   }
 
   componentDidMount() {
-    {/*
+    let { endpoint } = this.props.match.params;
+    let { id } = this.props.match.params;
+    let url = `https://swapi.com/api/${endpoint}/${id}`
+
+    fetch(url).then((response) => {
+      return response.json();
+    }).then((data) => {
+      this.setState({details: data.results})
+    });
+    /*
       Create an 'endpoint' variable set to the 'endpoint' property found in the params.
       Create an 'id' variable set to the 'id' property found in the params.
       Create a 'url' variable set to 'https://swapi.com/api/', plus the two variables from above.
       Fetch
       Set state for both 'details' (for rendering endpoint data) and 'endpoint' (to set conditional rendering)
-      */}
+      */
   }
 
   render() {

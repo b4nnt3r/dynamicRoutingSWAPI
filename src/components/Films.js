@@ -17,14 +17,20 @@ class List extends Component {
           {/*
             Add Link to '/details/' + endpoint
             */}
+            <Link to={endpoint}>
+            {endpoint}
+            </Link>
         </li>
       })
-      let starships = films.starships.map((starships) => {
+      let starships = films.starships.map((starships, index) => {
         let endpoint = starships.substr(starships.indexOf("/api/") + 5);
         return <li className="list-group-item" key={starships}>
           {/*
             Add Link to '/details/' + endpoint
             */}
+            <Link to={`${endpoint}#${index}`}>
+            {endpoint}
+            </Link>
         </li>
       })
 

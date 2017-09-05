@@ -17,6 +17,9 @@ class List extends Component {
             {/*
               Add Link to '/details/' + endpoint
               */}
+              <Link to={endpoint.replace("/", "#")}>
+              {endpoint}
+              </Link>
           </li>
       })
       let starships = people.starships.map((starships)=>{
@@ -25,6 +28,9 @@ class List extends Component {
           {/*
             Add Link to '/details/' + endpoint
             */}
+            <Link to={endpoint.replace("/", "#")}>
+            {endpoint}
+            </Link>
           </li>
       })
       return (
