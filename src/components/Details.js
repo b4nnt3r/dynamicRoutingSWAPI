@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 class View extends Component {
   render() {
@@ -106,12 +106,12 @@ class Details extends Component {
   componentDidMount() {
     let { endpoint } = this.props.match.params;
     let { id } = this.props.match.params;
-    let url = `https://swapi.com/api/${endpoint}/${id}`
+    let url = "https://swapi.co/api/" + endpoint + "/" + id;
 
     fetch(url).then((response) => {
       return response.json();
     }).then((data) => {
-      this.setState({details: data.results})
+      this.setState({details: data, endpoint: endpoint})
     });
     /*
       Create an 'endpoint' variable set to the 'endpoint' property found in the params.
@@ -132,7 +132,8 @@ class Details extends Component {
           {/*
             Pass the following props to View: details and endpoint.
             */}
-          <View/>
+            <View details={this.state.details} endpoint={this.state.endpoint} />
+
         </div>
       </div>
     );
